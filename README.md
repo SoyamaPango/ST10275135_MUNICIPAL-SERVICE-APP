@@ -72,3 +72,73 @@ Background image is from google
 Link: https://www.google.com/url?sa=i&url=https%3A%2F%2Freliablebackgroundscreening.com%2Findustries-served%2Fgovernment%2F&psig=AOvVaw2scRjEvClN5ONDEW_EJsN9&ust=1757600001431000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCOD95cKwzo8DFQAAAAAdAAAAABAE
 Video 
 Link:https://youtu.be/m4j5Yti4zXI
+# 🏙️ Municipal Services Application – Part 2
+
+### Student: Soyama Pango  
+### Student Number: ST10275135  
+### Module: PROG6212  
+### Project Type: POE Part 2 – Advanced Data Structures and Algorithms  
+
+---
+
+## 📘 Project Overview
+
+The **Municipal Services Application** is a C# Windows Forms application that provides users with access to local events and announcements within their municipality.  
+This version (Part 2) enhances the previous project by integrating **advanced data structures and algorithms** such as stacks, queues, hash tables, dictionaries, and sets to improve data management and user experience.
+
+---
+
+## 🧩 Key Features
+
+### 1. **Main Menu**
+- Allows users to navigate to different modules of the application, including:
+  - Local Events and Announcements
+  - Citizen Service Requests
+  - Contact and Help sections
+
+### 2. **Local Events & Announcements**
+- Displays a list of all upcoming municipal events and public announcements.
+- Includes search, category, and date filtering options.
+- Uses **Dictionary** (Hash Table) for quick event lookups.
+- Integrates **Stack**, **Queue**, and **HashSet** for optimized data processing.
+- Provides intelligent **recommendations** based on user searches.
+- Includes a **Refresh Button** to reload updated event data.
+- Allows users to navigate back to the main menu.
+
+### 3. **Recommendation Feature**
+- Based on recent searches and viewed events.
+- Uses:
+  - **Stack** – to track search history.  
+  - **Queue** – to maintain a list of recently viewed events.  
+  - **Dictionary** – for quick access to related events by category.  
+  - **HashSet** – to ensure unique categories.
+
+---
+
+## ⚙️ Technologies Used
+- **C# (.NET Framework 4.8)**
+- **Windows Forms**
+- **Object-Oriented Programming (OOP)**
+- **Data Structures**: Stack, Queue, Dictionary, HashSet
+- **Visual Studio 2022 / 2019**
+
+---
+
+## 🧠 Data Structures Summary
+
+| Data Structure | Module Used In | Purpose |
+|----------------|----------------|----------|
+| **Stack** | Local Events & Announcements | Tracks user search history for recommendations |
+| **Queue** | Local Events & Announcements | Manages recently viewed events (FIFO) |
+| **Dictionary** | Local Events & Announcements | Stores and retrieves events by category efficiently |
+| **HashSet** | Local Events & Announcements | Ensures categories are unique (no duplicates) |
+| **SortedDictionary** *(optional)* | Future extension | Could be used for sorting events by date or priority |
+
+---
+
+## 🖱️ How to Run
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SoyamaPango/ST10275135_MUNICIPAL-SERVICE-APP-PART-2.git
+
