@@ -56,12 +56,16 @@
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataStructures\AVLNode.cs" />
+    <Compile Include="DataStructures\BinarySearchTree.cs" />
     <Compile Include="DataStructures\CustomBST.cs" />
     <Compile Include="DataStructures\CustomLinkedList.cs" />
     <Compile Include="DataStructures\CustomPriorityQueue.cs" />
     <Compile Include="DataStructures\CustomQueue.cs" />
     <Compile Include="DataStructures\CustomSet.cs" />
     <Compile Include="DataStructures\CustomStack.cs" />
+    <Compile Include="DataStructures\Graph.cs" />
+    <Compile Include="DataStructures\MinHeap.cs" />
     <Compile Include="EventsForm.cs">
       <SubType>Form</SubType>
     </Compile>

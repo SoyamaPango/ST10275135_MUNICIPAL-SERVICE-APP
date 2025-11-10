@@ -44,6 +44,19 @@ namespace MunicipalServicesApp.Forms
 
             if (!valid) return;
 
+            // Create ServiceRequest
+            var id = $"REQ{DateTime.Now.Ticks % 1000000:D6}";
+            var request = new ServiceRequest(
+                id,
+                $"{cmbCategory.SelectedItem} Issue - {txtLocation.Text}",
+                "Pending",
+                DateTime.Now
+            );
+
+            // Add to ServiceRequestRepository
+            ServiceRequestRepository.Add(request);
+
+            // Optional: keep issue-specific data
             var issue = new Issue
             {
                 Location = txtLocation.Text,
@@ -52,10 +65,9 @@ namespace MunicipalServicesApp.Forms
                 AttachmentPath = txtAttachment.Text,
                 SubmittedAt = DateTime.Now.ToString("g")
             };
-
             IssueRepository.Add(issue);
-            progressBar.Value = 100;
 
+            progressBar.Value = 100;
             MessageBox.Show("Issue submitted successfully!", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
