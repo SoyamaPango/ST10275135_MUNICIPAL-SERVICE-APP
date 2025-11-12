@@ -1,144 +1,110 @@
-Bayview Municipal Services App
+# 🏛️ Municipal Services Application – Task 3 Reports
 
-Project Overview
-The Bayview Municipal Services App is a Windows Forms application designed to digitise citizen services for the Bayview Metropolitan Municipality. The system allows residents to report municipal issues, view announcements, and track the status of service requests. Employees can manage reported issues and mark them as resolved once addressed.
-This project demonstrates role-based authentication, simple in-memory data storage, and an interactive GUI with modern design principles.
-Features
-For Residents:
-Sign up and log in as a resident.
-Submit municipal service issues with location, category, description, and optional attachment.
-View all reported issues, including status updates.
-Access digital announcements and local events (placeholder functionality for now).
-For Employees:
-Sign up and log in as an employee.
-View all reported issues in a centralised dashboard.
-Mark issues as Resolved once completed.
-Access the dashboard directly after login for faster issue management.
-User Roles
-Role	Access
-Resident:	Main menu, report issues, view status of all issues, see dashboard (read-only)
-Employee:	Direct dashboard access, view and update issue status, mark issues as resolved
-Technologies Used
-Language: C# (.NET Framework / .NET Core Windows Forms)
-IDE: Visual Studio
-UI: Windows Forms with panels, FlowLayoutPanel, and DataGridView
-Data Storage: In-memory collections (List) for users and issues
-Design: Role-based access, header and background branding consistent across forms
-Setup & Installation
-Clone or download the repository:
-git clone https:MunicipalServicesApp_Part-1 
-Open the project in Visual Studio.
-Set the LoginForm as the startup form.
-Build and run the project (F5 in Visual Studio).
-Usage
-Launch the app.
-Sign up a new account or log in with a default demo account:
-Residents:
-Username: resident1
-Password: 1234
-Employees:
-Username: employee1
-Password: admin
-Navigate through the main menu (residents) or dashboard (employees).
-Residents can submit issues; employees can mark them as resolved.
-Project Structure
-MunicipalServicesApp/
-│
-├─ Forms/
-│  ├─ LoginForm.cs
-│  ├─ SignupForm.cs
-│  ├─ MainForm.cs
-│  └─ DashboardForm.cs
-│
-├─ Models/
-│  ├─ User.cs
-│  └─ Issue.cs
-│
-├─ Services/
-│  └─ IssueRepository.cs
-│
-├─ Properties/
-│  └─ Resources.resx (images, logos, flags)
-│
-└─ Program.cs
-Future Enhancements
-Integrate a persistent database (SQL Server or SQLite) instead of in-memory storage.
-Enable file attachments for issues to be uploaded and viewed.
-Add notifications for residents when their issue status changes.
-Implement real local events & announcements feed.
-AI usage AI was used to generate the logo 
-Link: Fake flag with B
-Background image is from google
-Link: https://www.google.com/url?sa=i&url=https%3A%2F%2Freliablebackgroundscreening.com%2Findustries-served%2Fgovernment%2F&psig=AOvVaw2scRjEvClN5ONDEW_EJsN9&ust=1757600001431000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCOD95cKwzo8DFQAAAAAdAAAAABAE
-Video 
-Link:https://youtu.be/m4j5Yti4zXI
-# 🏙️ Municipal Services Application – Part 2
-
-### Student: Soyama Pango  
-### Student Number: ST10275135  
-### Module: PROG6212  
-### Project Type: POE Part 2 – Advanced Data Structures and Algorithms  
+## 🔗 Links
+- **Demo Video:** [https://studio.youtube.com/video/54SkerS9ESw/edit](https://studio.youtube.com/video/54SkerS9ESw/edit)
 
 ---
 
-## 📘 Project Overview
+## 🧩 Implementation Report
 
-The **Municipal Services Application** is a C# Windows Forms application that provides users with access to local events and announcements within their municipality.  
-This version (Part 2) enhances the previous project by integrating **advanced data structures and algorithms** such as stacks, queues, hash tables, dictionaries, and sets to improve data management and user experience.
-
----
-
-## 🧩 Key Features
-
-### 1. **Main Menu**
-- Allows users to navigate to different modules of the application, including:
-  - Local Events and Announcements
-  - Citizen Service Requests
-  - Contact and Help sections
-
-### 2. **Local Events & Announcements**
-- Displays a list of all upcoming municipal events and public announcements.
-- Includes search, category, and date filtering options.
-- Uses **Dictionary** (Hash Table) for quick event lookups.
-- Integrates **Stack**, **Queue**, and **HashSet** for optimized data processing.
-- Provides intelligent **recommendations** based on user searches.
-- Includes a **Refresh Button** to reload updated event data.
-- Allows users to navigate back to the main menu.
-
-### 3. **Recommendation Feature**
-- Based on recent searches and viewed events.
-- Uses:
-  - **Stack** – to track search history.  
-  - **Queue** – to maintain a list of recently viewed events.  
-  - **Dictionary** – for quick access to related events by category.  
-  - **HashSet** – to ensure unique categories.
+### Overview
+The Municipal Services Application Task 3 focused on implementing the **Service Request Status** functionality, integrating advanced data structures and algorithms to manage, organise, and display service request information efficiently. The application allows users to track the progress of service requests using unique identifiers and view dependencies between requests.
 
 ---
 
-## ⚙️ Technologies Used
-- **C# (.NET Framework 4.8)**
-- **Windows Forms**
-- **Object-Oriented Programming (OOP)**
-- **Data Structures**: Stack, Queue, Dictionary, HashSet
-- **Visual Studio 2022 / 2019**
+### How to Compile and Run
+1. Open the solution in **Visual Studio 2022 or later**.  
+2. Build the solution: **Ctrl + Shift + B**  
+3. Run the application: **F5** or **Ctrl + F5**  
+4. On the main menu, select **Service Request Status** to view and interact with requests.  
+5. Use the **Search by ID** field to locate specific service requests.  
+6. Click **Show Dependencies** to display dependent service requests.  
+7. Click **Refresh** to reload the list of service requests after any updates.  
 
 ---
 
-## 🧠 Data Structures Summary
+## 🧮 Implemented Data Structures
 
-| Data Structure | Module Used In | Purpose |
-|----------------|----------------|----------|
-| **Stack** | Local Events & Announcements | Tracks user search history for recommendations |
-| **Queue** | Local Events & Announcements | Manages recently viewed events (FIFO) |
-| **Dictionary** | Local Events & Announcements | Stores and retrieves events by category efficiently |
-| **HashSet** | Local Events & Announcements | Ensures categories are unique (no duplicates) |
-| **SortedDictionary** *(optional)* | Future extension | Could be used for sorting events by date or priority |
+### 1. Binary Search Tree (BST)
+- **Role:** Efficiently stores and retrieves service requests by unique ID.  
+- **Contribution:** Searching a request by ID has O(log n) average complexity.  
+- **Example:** The user enters REQ002 → BST quickly locates and displays the request.  
+
+### 2. AVL Tree
+- **Role:** Self-balancing BST for ordered traversal of requests by date.  
+- **Contribution:** Maintains balance automatically, ensuring O(log n) insertion, deletion, and search.  
+- **Example:** Service requests sorted chronologically for reporting purposes.  
+
+### 3. MinHeap
+- **Role:** Prioritises requests by submission date (older = higher priority).  
+- **Contribution:** Supports priority-based views efficiently.  
+- **Example:** The oldest pending requests appear at the top of the display.  
+
+### 4. Graph
+- **Role:** Represents service request dependencies.  
+- **Contribution:** Supports depth-first search traversal to track progress and identify connected requests.  
+- **Example:** Selecting REQ005 and clicking Show Dependencies displays the chain of dependent requests.  
+
+### 5. Custom Data Structures
+- **Linked List, Queue, Stack, Set** used for managing requests by status, storing recently resolved requests, and ensuring uniqueness where required.  
+
+### 6. Optional Advanced Structures
+- **Red-Black Tree / Minimum Spanning Tree:** Not implemented as dependencies were unweighted; can be added for enhanced efficiency in complex scenarios.  
 
 ---
 
-## 🖱️ How to Run
+## 📘 Project Completion Report
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SoyamaPango/ST10275135_MUNICIPAL-SERVICE-APP-PART-2.git
+### Challenges Faced
+1. Integrating multiple data structures – Ensuring that BST, AVL Tree, Heap, and Graph work together without data conflicts required careful design.  
+2. Dependency management – Initially, new service requests did not appear in the dependency graph. This was resolved by adding sample edges and ensuring the repository updated correctly.  
+3. UI responsiveness – Maintaining a smooth and accurate DataGridView while reflecting changes in multiple underlying structures required event handling and refresh logic.  
+4. Data persistence – Since the application currently uses in-memory storage, refreshing the form rebuilds data structures dynamically.  
 
+---
+
+### Solutions Implemented
+- Created a unified repository (**ServiceRequestRepository**) to feed all data structures.  
+- Implemented refresh functionality to rebuild trees, heap, and graph whenever data changes.  
+- Validated user inputs to avoid invalid or incomplete service requests.  
+- Used depth-first traversal (**DFS**) to display request dependencies clearly.  
+
+---
+
+### Key Learnings
+- Improved understanding of **binary trees, AVL trees, heaps, and graphs**.  
+- Learned to combine multiple data structures efficiently for real-world applications.  
+- Developed skills in **Windows Forms UI design**, **event handling**, and **data binding**.  
+- Gained experience in **problem-solving**, **debugging complex logic**, and integrating algorithms in practical software.  
+
+---
+
+## 💡 Technology Recommendations
+
+### 1. Database Integration (SQL Server / SQLite)
+- **Current storage is in-memory**; a database would allow persistent storage and multi-user access.  
+- **Benefit:** All service requests and updates are retained across sessions.  
+
+### 2. Graphical Data Visualization
+- Use a charting library (e.g., **LiveCharts**) to visualise dependencies and request status.  
+- **Benefit:** Makes dependency relationships clearer and easier to interpret.  
+
+### 3. REST API Layer
+- Implement a backend API to allow mobile and web clients to submit and track requests.  
+- **Benefit:** Enables future expansion to cross-platform use.  
+
+### 4. Red-Black Tree / Weighted Graph for Dependencies
+- If dependency relationships become complex with weights (priority, severity), these structures will optimise retrieval and reporting.  
+
+---
+
+## 🔄 Updates Based on Feedback
+- Added dropdown selection for **Resident vs Employee** login.  
+- Fixed UI navigation to prevent non-employee features appearing for employees.  
+- Implemented refresh logic to ensure dashboards update after adding or resolving requests.  
+- Added **sample data** (15+ events and service requests) for demonstration purposes.  
+
+---
+
+## ✅ Conclusion
+Task 3 of the Municipal Services Application is complete, with fully functional **Service Request Status** management. All key data structures have been implemented, and the application is able to efficiently display, search, and manage service requests. Minor enhancements (persistent storage, advanced visualization, weighted MST) could further improve performance and usability.
