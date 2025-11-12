@@ -6,25 +6,34 @@ namespace MunicipalServicesApp.Services
 {
     public static class EventRepository
     {
-        // BST keyed by Date (date only) -> list of events on that date
         private static CustomBST<DateTime, CustomLinkedList<Event>> eventsByDate = new CustomBST<DateTime, CustomLinkedList<Event>>();
 
-        // BST keyed by category -> list of events in category
         private static CustomBST<string, CustomLinkedList<Event>> eventsByCategory = new CustomBST<string, CustomLinkedList<Event>>();
 
         static EventRepository()
         {
-            //  Demo events
+            // Demo events
             Add(new Event("E1", "Farmers Market", "Markets", "Fresh produce and crafts", DateTime.Today.AddDays(2), "Town Square"));
             Add(new Event("E2", "Roadworks Update", "Announcements", "Temporary roadworks on Main St.", DateTime.Today.AddDays(1), "Main St."));
             Add(new Event("E3", "Concert in the Park", "Entertainment", "Local bands perform", DateTime.Today.AddDays(10), "Bayview Park"));
-            Add(new Event("E4", "Water Maintenance", "Announcements", "Planned maintenance", DateTime.Today.AddDays(3), "Citywide"));
-            Add(new Event("E5", "Art Exhibition", "Arts", "Local artists showcase", DateTime.Today.AddDays(5), "Community Hall"));
+            Add(new Event("E4", "Water Maintenance", "Announcements", "Planned maintenance across the city", DateTime.Today.AddDays(3), "Citywide"));
+            Add(new Event("E5", "Art Exhibition", "Arts", "Local artists showcase their work", DateTime.Today.AddDays(5), "Community Hall"));
+            Add(new Event("E6", "Blood Donation Drive", "Health", "Support our local blood bank", DateTime.Today.AddDays(7), "City Clinic"));
+            Add(new Event("E7", "Community Clean-Up", "Environment", "Join us to clean up the riverside", DateTime.Today.AddDays(4), "Riverside Park"));
+            Add(new Event("E8", "Fire Safety Workshop", "Education", "Learn fire safety tips from experts", DateTime.Today.AddDays(6), "Fire Station"));
+            Add(new Event("E9", "Heritage Day Parade", "Cultural", "Celebrate our diverse heritage", DateTime.Today.AddDays(12), "Main Street"));
+            Add(new Event("E10", "Youth Soccer Tournament", "Sports", "High school teams compete", DateTime.Today.AddDays(9), "City Stadium"));
+            Add(new Event("E11", "Load Shedding Update", "Announcements", "Schedule for next week's power outages", DateTime.Today.AddDays(2), "Citywide"));
+            Add(new Event("E12", "Book Fair", "Education", "Discover new authors and titles", DateTime.Today.AddDays(8), "Library Grounds"));
+            Add(new Event("E13", "Health Awareness Walk", "Health", "5km walk to promote healthy living", DateTime.Today.AddDays(11), "Seaside Promenade"));
+            Add(new Event("E14", "Animal Adoption Day", "Community", "Find a furry friend to take home", DateTime.Today.AddDays(13), "SPCA Centre"));
+            Add(new Event("E15", "Water Conservation Talk", "Environment", "Tips to save water at home", DateTime.Today.AddDays(14), "Civic Centre"));
+
         }
 
         public static void Add(Event e)
         {
-            // By date (use date-only)
+            // By date 
             DateTime keyDate = e.Date.Date;
             var list = eventsByDate.Find(keyDate);
             if (list == null) list = new CustomLinkedList<Event>();

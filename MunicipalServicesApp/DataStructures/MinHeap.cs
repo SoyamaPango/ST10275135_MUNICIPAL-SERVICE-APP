@@ -15,7 +15,7 @@ namespace MunicipalServicesApp.DataStructures
 
         private int Compare(ServiceRequest a, ServiceRequest b)
         {
-            // earlier date = smaller
+       
             return a.DateSubmitted.CompareTo(b.DateSubmitted);
         }
 

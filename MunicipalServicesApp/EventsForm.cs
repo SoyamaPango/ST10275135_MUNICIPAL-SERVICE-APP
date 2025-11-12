@@ -9,16 +9,13 @@ namespace MunicipalServicesApp.Forms
 {
     public partial class EventsForm : Form
     {
-        // Dictionary (Hash Table) for quick category-event lookup
         private Dictionary<string, List<Event>> eventsByCategory = new Dictionary<string, List<Event>>();
 
-        // Stack to track user search history
+        
         private Stack<string> searchHistory = new Stack<string>();
 
-        // Queue to hold recently viewed events (FIFO)
         private Queue<Event> recentEvents = new Queue<Event>();
 
-        // Set to ensure categories remain unique
         private HashSet<string> uniqueCategories = new HashSet<string>();
 
         public EventsForm()
@@ -28,7 +25,6 @@ namespace MunicipalServicesApp.Forms
             LoadAllEvents();
         }
 
-        // Load all categories into ComboBox
         private void LoadCategories()
         {
             comboCategory.Items.Clear();
@@ -39,20 +35,17 @@ namespace MunicipalServicesApp.Forms
                 comboCategory.Items.Add(c);
         }
 
-        // Load all events into DataGridView
         private void LoadAllEvents()
         {
             dgvEvents.DataSource = null;
             var allEvents = EventRepository.GetAll().ToList();
             dgvEvents.DataSource = allEvents;
 
-            // Build dictionary by category
             eventsByCategory = allEvents
                 .GroupBy(e => e.Category)
                 .ToDictionary(g => g.Key, g => g.ToList());
         }
 
-        // Search button clicked
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string cat = comboCategory.SelectedItem != null ? comboCategory.SelectedItem.ToString() : "";
@@ -78,7 +71,7 @@ namespace MunicipalServicesApp.Forms
                 {
                     results.Add(ev);
 
-                    // Add to recent events queue (max 5)
+                    
                     recentEvents.Enqueue(ev);
                     if (recentEvents.Count > 5)
                         recentEvents.Dequeue();
@@ -88,11 +81,9 @@ namespace MunicipalServicesApp.Forms
             dgvEvents.DataSource = null;
             dgvEvents.DataSource = results;
 
-            // Update recommendations
             UpdateRecommendations(search);
         }
 
-        // Refresh button clicked
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             txtSearch.Clear();
@@ -105,7 +96,6 @@ namespace MunicipalServicesApp.Forms
             recentEvents.Clear();
         }
 
-        // Update recommendations based on search
         private void UpdateRecommendations(string searchQuery)
         {
             lstRecommendations.Items.Clear();
@@ -139,7 +129,6 @@ namespace MunicipalServicesApp.Forms
                     lstRecommendations.Items.Add($"{ev.Title} ({ev.Date:d}) - {ev.Category}");
             }
 
-            // Show recently viewed
             if (recentEvents.Count > 0)
             {
                 lstRecommendations.Items.Add("");
@@ -149,7 +138,6 @@ namespace MunicipalServicesApp.Forms
             }
         }
 
-        // Back button clicked
         private void btnBack_Click(object sender, EventArgs e)
         {
             var main = new MainForm();
